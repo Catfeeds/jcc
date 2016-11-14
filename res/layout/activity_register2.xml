@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eff2f6"
+    android:orientation="vertical" >
+
+	<ViewSwitcher
+    	android:id="@+id/news_detail_viewswitcher" 
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_weight="1">
+	    <ScrollView
+	    	android:id="@+id/news_detail_scrollview" 
+	    	android:layout_width="fill_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_weight="1"
+	    	android:scrollbars="vertical"
+	    	android:fadingEdge="none"
+	    	android:layout_margin="10dp">
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="0dip"
+		        android:layout_weight="1" >
+				
+		         <TextView
+		            android:id="@+id/title"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:text="注册信息" 
+		            android:gravity="center_vertical|center_horizontal"
+		            android:textAppearance="?android:attr/textAppearanceLarge" />		         
+		        
+		         <TextView
+		            android:id="@+id/textView0"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:text="    带*号为必填栏，本站为您的注册保密，凡是上传的证件或联系电话等个人信息不会显示在界面上。" 
+		            android:layout_below="@+id/title"
+		             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+		         <TextView
+		             android:id="@+id/textView1"
+		             android:layout_width="wrap_content"
+		             android:layout_height="wrap_content"
+		             android:layout_below="@+id/textView0"
+		             android:layout_alignParentLeft="true"
+		             android:layout_marginTop="15dp"
+		             android:text="姓名" 
+		             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+		         <EditText
+		             android:id="@+id/editText1"
+		             android:layout_width="wrap_content"
+		             android:layout_height="wrap_content"
+		             android:layout_alignBaseline="@+id/textView1"
+		             android:layout_toRightOf="@+id/textView1"
+		             android:ems="10"
+		             android:hint="不超过5个中文" />
+		         
+		         <TextView
+		             android:id="@+id/textView2"
+		             android:layout_width="wrap_content"
+		             android:layout_height="wrap_content"
+		             android:layout_below="@+id/textView1"
+		             android:layout_marginTop="15dp"
+		             android:layout_alignParentLeft="true"
+		             android:text="*昵称"
+		             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+		         <EditText
+		             android:id="@+id/EditText01"
+		             android:layout_width="wrap_content"
+		             android:layout_height="wrap_content"
+		             android:layout_alignBaseline="@+id/textView2"
+		             android:layout_toRightOf="@+id/textView2"
+		             android:ems="10"
+		             android:hint="不超过5个中文或10个英文字母"  />
+		         
+		         <TextView
+		             android:id="@+id/textView3"
+		             android:layout_width="wrap_content"
+		             android:layout_height="wrap_content"
+		             android:layout_below="@+id/textView2"
+		             android:layout_marginTop="15dp"
+		             android:layout_alignParentLeft="true"
+		             android:text="*性别"
+		             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+		         <Spinner
+		             android:id="@+id/spinner1"
+		             android:layout_width="wrap_content"
+		             android:layout_height="wrap_content"
+		             android:layout_below="@+id/textView2"
+		             android:layout_marginTop="15dp"
+		             android:layout_toRightOf="@+id/textView3" />
+		         
+		         <TextView
+		             android:id="@+id/textView4"
+		             android:layout_width="wrap_content"
+		             android:layout_height="wrap_content"
+		             android:layout_below="@+id/textView3"
+		             android:layout_marginTop="15dp"
+		             android:layout_alignParentLeft="true"
+		             android:text="出生"
+		             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+		         <EditText
+		             android:id="@+id/birthday"
+		             android:layout_width="wrap_content"
+		             android:layout_height="wrap_content"
+		             android:layout_alignBaseline="@+id/textView4"
+		             android:layout_toRightOf="@+id/textView4"
+		             android:ems="10"
+		             android:hint="出生日期"  />
+		         
+		         <TextView
+		             android:id="@+id/textView5"
+		             android:layout_width="wrap_content"
+		             android:layout_height="wrap_content"
+		             android:layout_below="@+id/textView4"
+		             android:layout_marginTop="15dp"
+		             android:layout_alignParentLeft="true"
+		             android:text="身份属性："
+		             android:textAppearance="?android:attr/textAppearanceMedium" />
+		         
+		         <TextView
+		             android:id="@+id/textView6"
+		             android:layout_width="wrap_content"
+		             android:layout_height="wrap_content"
+		             android:layout_below="@+id/textView5"
+		             android:layout_marginTop="15dp"
+		             android:layout_alignParentLeft="true"
+		             android:text="1、教师"
+		             android:textAppearance="?android:attr/textAppearanceLarge" />
+		         
+		         <TextView
+		             android:id="@+id/textView7"
+		             android:layout_width="wrap_content"
+		             android:layout_height="wrap_content"
+		             android:layout_below="@+id/textView6"
+		             android:layout_marginTop="15dp"
+		             android:layout_alignParentLeft="true"
+		             android:text="*您所在学校"
+		             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+		    </RelativeLayout>
+		    
+	    	
+	     </ScrollView>
+	</ViewSwitcher>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#fff" >
+
+            <ImageView
+                android:id="@+id/iv_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dip"
+                android:src="@drawable/icon_account" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/iv_username"
+                android:background="@null"
+                android:hint="@string/user_name"
+                android:paddingLeft="10dip"
+                android:singleLine="true"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="#fff" >
+
+            <ImageView
+                android:id="@+id/iv_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dip"
+                android:src="@drawable/icon_pwd" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/iv_password"
+                android:background="@null"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:paddingLeft="10dip"
+                android:singleLine="true"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="#fff" >
+
+            <ImageView
+                android:id="@+id/iv_password2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dip"
+                android:src="@drawable/icon_pwd" />
+
+            <EditText
+                android:id="@+id/confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/iv_password2"
+                android:background="@null"
+                android:hint="@string/confirmpassword"
+                android:inputType="textPassword"
+                android:paddingLeft="10dip"
+                android:singleLine="true"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_login_bg"
+                android:onClick="register"
+                android:paddingBottom="7dp"
+                android:paddingTop="7dp"
+                android:text="@string/register"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@drawable/top"
+        android:gravity="center_vertical" >
+                
+        <include layout="@layout/commom_back_btn" />
+
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="学生群"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+        
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/main_title"
+        android:orientation="vertical">
+		<LinearLayout
+		    android:id="@+id/ll_my_friend"
+		    android:layout_width="match_parent"
+		    android:layout_height="60dip"
+		    android:background="#d0edd5"
+		    android:padding="10dip" 
+		    android:onClick="MyFriendClick">
+		
+		    <TextView
+		        android:id="@+id/tv_myfriend"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_vertical"
+		        android:paddingLeft="10dip"
+		        android:text="我的好友"
+		        android:textColor="@android:color/black"
+		        android:textSize="14sp" />
+		</LinearLayout>
+
+		<LinearLayout
+		    android:id="@+id/ll_my_group"
+		    android:layout_width="match_parent"
+		    android:layout_height="60dip"
+		    android:layout_alignParentLeft="true"
+		    android:layout_alignParentTop="true"
+		    android:background="#d0edd5"
+		    android:padding="10dip" 
+		    android:layout_marginTop="2dip"
+		    android:onClick="MyGroupClick">
+
+		    <TextView
+		        android:id="@+id/tv_groupname"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_gravity="center_vertical"
+		        android:paddingLeft="10dip"
+		        android:text="无群组"
+		        android:textColor="@android:color/black"
+		        android:textSize="14sp" />
+		</LinearLayout>
+
+	</LinearLayout>		         
+</RelativeLayout>

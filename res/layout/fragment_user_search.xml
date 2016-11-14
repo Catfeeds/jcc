@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <RelativeLayout
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@drawable/top"
+        android:gravity="center_vertical" >
+
+        <include layout="@layout/commom_back_btn" />
+
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="找ta"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+         android:id="@+id/ll_filter"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/main_title"
+         android:background="@drawable/btn_bottom_selector"
+         android:padding="5dip" >
+        
+    <RelativeLayout
+         android:id="@+id/ll_sf"
+         android:layout_width="match_parent"
+         android:layout_height="40dip"
+         android:paddingLeft="10dip"
+         android:paddingRight="10dip">
+         
+         <TextView
+             android:id="@+id/tv_sf"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerVertical="true"
+             android:text="省份"
+             android:textColor="@android:color/black"
+             android:textSize="11sp"
+             android:typeface="serif"
+             android:gravity="top" />
+
+         <EditText
+             android:id="@+id/et_place"
+             android:layout_width="match_parent"
+             android:layout_height="39dp"
+             android:layout_toRightOf="@+id/tv_sf"
+             android:background="@drawable/edit_text_nborder"
+             android:hint="点击选择省份"
+             android:editable="false"
+             android:paddingLeft="5dp"
+             android:singleLine="true"
+             android:textColorHint="#b3b3b3"
+             android:textSize="11sp" />
+	  </RelativeLayout>
+	            
+    <RelativeLayout
+         android:id="@+id/ll_xx"
+         android:layout_width="match_parent"
+         android:layout_height="40dip"
+         android:layout_below="@+id/ll_sf"
+         android:paddingLeft="10dip"
+         android:paddingRight="10dip">
+         
+         <TextView
+             android:id="@+id/tv_xx"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerVertical="true"
+             android:text="学校"
+             android:textColor="@android:color/black"
+             android:textSize="11sp"
+             android:typeface="serif"
+             android:gravity="top" />
+         
+         <EditText
+             android:id="@+id/et_school"
+             android:layout_width="fill_parent"
+             android:layout_height="39dp"
+             android:layout_toRightOf="@+id/tv_xx"
+             android:background="@drawable/edit_text_nborder"
+             android:hint="填写学校全称"
+             android:paddingLeft="5dp"
+             android:singleLine="true"
+             android:textColorHint="#b3b3b3"
+             android:textSize="11sp" />
+                
+	  </RelativeLayout>
+	
+     <RelativeLayout
+         android:id="@+id/ll_xb"
+         android:layout_width="match_parent"
+         android:layout_height="40dip"
+         android:layout_below="@+id/ll_xx"
+         android:paddingLeft="10dip"
+         android:paddingRight="10dip">
+         
+         <TextView
+             android:id="@+id/tv_xb"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_centerVertical="true"
+             android:text="性别"
+             android:textColor="@android:color/black"
+             android:textSize="11sp"
+             android:typeface="serif"
+             android:gravity="top" />
+         
+                <RadioGroup
+                    android:id="@+id/gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/tv_xb"
+                    android:orientation="horizontal" >
+                    
+                    <RadioButton
+                        android:id="@+id/all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="全部"
+                        android:textSize="11sp" />
+
+                    <RadioButton
+                        android:id="@+id/male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="男"
+                        android:textSize="11sp" />
+
+                    <RadioButton
+                        android:id="@+id/female "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="女"
+                        android:textSize="11sp" />
+                </RadioGroup>
+                
+	  </RelativeLayout>
+    
+    <RelativeLayout
+         android:id="@+id/ll_zh"
+         android:layout_width="match_parent"
+         android:layout_height="40dip"
+         android:layout_below="@+id/ll_xb"
+         android:paddingLeft="10dip"
+         android:paddingRight="10dip">
+         
+         <EditText
+             android:id="@+id/et_name"
+             android:layout_width="fill_parent"
+             android:layout_height="39dp"
+             android:background="@drawable/edit_text_nborder"
+             android:hint="昵称、帐号"
+             android:paddingLeft="5dp"
+             android:singleLine="true"
+             android:textColorHint="#b3b3b3"
+             android:textSize="11sp" />
+                
+	  </RelativeLayout>
+	  
+      <Button
+          android:id="@+id/bt_search"
+          android:layout_width="fill_parent"
+          android:layout_height="30dp"
+          android:layout_centerInParent="true"
+          android:layout_below="@+id/ll_zh"
+          android:layout_margin="15dp"
+          android:background="#006633"
+          android:text="查找"
+          android:textSize="16sp"
+          />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/main_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_filter"
+        android:orientation="vertical" 
+        android:gravity="center_horizontal"
+        android:visibility="gone">
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="对不起，暂无找到相关用户"
+            android:layout_margin="10dp"
+            android:textSize="16sp" />
+    </LinearLayout>
+</RelativeLayout>

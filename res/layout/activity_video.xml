@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@drawable/top"
+        android:gravity="center_vertical" >
+                
+        <include
+            android:id="@+id/title_back"
+            layout="@layout/commom_back_btn" />
+
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="视频学习"
+            android:singleLine="true"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+        
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/main_title"
+        android:orientation="vertical">
+
+		<ProgressBar
+		    android:id="@+id/progressbar"
+	        android:layout_width="30dp"
+	        android:layout_height="30dp"
+	        android:layout_gravity="center"
+	        android:layout_marginTop="40dp"
+	        android:indeterminateDrawable="@drawable/progress_animdraw"
+	        android:indeterminateDuration="1500" />
+		
+        <WebView
+            android:id="@+id/wv_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+	</LinearLayout>
+
+   <FrameLayout    
+       android:id="@+id/fullscreen_custom_content"    
+       android:layout_width="match_parent"    
+       android:layout_height="match_parent"    
+       android:visibility="gone" />     
+</RelativeLayout>

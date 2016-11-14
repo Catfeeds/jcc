@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+    
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@drawable/top"
+        android:gravity="center_vertical" >
+                
+        <include layout="@layout/commom_back_btn" />
+
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="拍照提问"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+        
+    </RelativeLayout>
+    <RelativeLayout
+            android:id="@+id/recording_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/recording_hint_bg"
+            android:padding="10dp"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/mic_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/record_animate_01" />
+
+            <TextView
+                android:id="@+id/recording_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mic_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:padding="2dp"
+                android:text="@string/move_up_to_cancel"
+                android:textSize="10sp" />
+  </RelativeLayout>
+  
+  <ScrollView
+    android:id="@+id/main_conent_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/main_title">
+        
+    <LinearLayout
+        android:id="@+id/main_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">		 
+        
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/main_title"
+	        android:orientation="vertical"
+	        android:layout_margin="15dp">
+		  
+		 <LinearLayout 
+            android:id="@+id/ll_question1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+		     >
+
+	        <TextView
+	            android:id="@+id/textView1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="我的提问：" 
+	            android:textSize="16dp"/>
+
+	        <EditText
+	            android:id="@+id/question1"
+	            android:layout_width="fill_parent"
+	            android:layout_height="100dp"
+	            android:layout_marginTop="5dp"
+	            android:gravity="top"
+	            android:text=""
+	            android:hint="问题"
+	            android:textSize="14dp"/>
+	        
+	        <GridView
+		        android:id="@+id/gv_question_file1"
+		        android:layout_width="match_parent"
+		        android:layout_height="70dp"
+		        android:gravity="center_vertical"
+		        android:numColumns="3" 
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginBottom="15dp"
+				android:visibility="gone">
+		    </GridView>
+	     </LinearLayout>
+		  
+		 <LinearLayout 
+            android:id="@+id/ll_answer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+		     >
+		       
+	        <TextView
+	            android:id="@+id/textView2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="10dp"
+	            android:text="老师答复：" 
+	            android:textSize="16dp"/>
+	        
+	        <EditText
+	            android:id="@+id/answer1"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="5dp"
+	            android:text=""
+	            android:textSize="16dp"/>
+	        
+		    <LinearLayout
+		        android:id="@+id/ll_voice1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:gravity="center_vertical"
+		        android:visibility="gone">
+		        	
+		        <TextView
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:textSize="16sp"
+		            android:layout_marginRight="8dp"
+		            android:text="语音："/>
+
+		        <ImageView
+		            android:id="@+id/voice1"
+		            android:layout_width="22dp"
+		            android:layout_height="22dp"
+		            android:scaleType="center"
+		            android:src="@drawable/chatfrom_voice_playing" />
+		        
+		        <Button 
+		            android:id="@+id/record1"
+		            android:layout_width="wrap_content"
+		            android:layout_height="35dp"
+		            android:textSize="14sp"
+		            android:text="按住录音"
+		            />
+		        
+		        <Button 
+		            android:id="@+id/answersend1"
+		            android:layout_width="wrap_content"
+		            android:layout_height="35dp"
+		            android:textSize="14sp"
+		            android:layout_marginLeft="20dp"
+		            android:text="提交"
+		            />
+		     </LinearLayout>
+		 </LinearLayout>
+		 
+		 <LinearLayout 
+            android:id="@+id/ll_question2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+		     >
+		        
+		    <RelativeLayout
+		        android:id="@+id/rl_complaint"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:gravity="center_vertical">
+
+		        <EditText
+		            android:id="@+id/reason"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+	            	android:layout_centerVertical="true"
+	            	android:inputType="textMultiLine"
+	            	android:hint="投诉该答复及理由："
+		            android:layout_toLeftOf="@+id/complaint"/>
+		        
+		        <Button 
+		            android:id="@+id/complaint"
+		            android:layout_width="wrap_content"
+		            android:layout_height="35dp"
+		            android:layout_alignParentRight="true"
+		            android:textSize="14sp"
+		            android:text="投诉"
+		            />
+		     </RelativeLayout>
+		     
+	        <EditText
+	            android:id="@+id/question2"
+	            android:layout_width="fill_parent"
+	            android:layout_height="100dp"
+	            android:layout_marginTop="5dp"
+	            android:gravity="top"
+	            android:text=""
+	            android:hint="该问题不理解之处再咨询一次："
+	            android:textSize="14dp"/>
+	        
+	        <GridView
+		        android:id="@+id/gv_question_file2"
+		        android:layout_width="match_parent"
+		        android:layout_height="70dp"
+		        android:gravity="center_vertical"
+		        android:numColumns="3" 
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginBottom="15dp"
+				android:visibility="gone">
+		    </GridView>
+	        
+		     <RelativeLayout
+		        android:id="@+id/rl_addimage"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:gravity="center_vertical">
+		        	
+		        <TextView
+		            android:id="@+id/tv_addimg"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_centerVertical="true"
+		            android:textSize="16sp"
+		            android:layout_marginRight="8dp"
+		            android:text="拍照上传问题"/>
+
+		        <ImageView
+		            android:id="@+id/addimage"
+		            android:layout_width="25dp"
+		            android:layout_height="25dp"
+		            android:layout_centerVertical="true"
+		            android:layout_toRightOf="@+id/tv_addimg"
+		            android:src="@drawable/shangchuan" />
+
+		        <Button
+		            android:id="@+id/send"
+		            android:layout_width="wrap_content"
+		            android:layout_height="25dp"
+		            android:background="#006633"
+		            android:layout_alignParentRight="true"
+		            android:textColor="#FFFFFF"
+		            android:text="发送"
+		            android:textSize="14sp" />
+
+		     </RelativeLayout>
+		   </LinearLayout>
+		  
+		 <LinearLayout 
+            android:id="@+id/ll_answer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+		     >
+		     
+	        <EditText
+	            android:id="@+id/answer2"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="5dp"
+	            android:text=""
+	            android:hint="答复内容"
+	            android:textSize="14dp"/>
+	        
+		    <LinearLayout
+		        android:id="@+id/ll_voice2"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="horizontal"
+		        android:gravity="center_vertical"
+		        android:visibility="gone">
+		        	
+		        <TextView
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:textSize="16sp"
+		            android:layout_marginRight="8dp"
+		            android:text="语音："/>
+
+		        <ImageView
+		            android:id="@+id/voice2"
+		            android:layout_width="22dp"
+		            android:layout_height="22dp"
+		            android:scaleType="center"
+		            android:src="@drawable/chatfrom_voice_playing" />
+		        
+		        <Button 
+		            android:id="@+id/record2"
+		            android:layout_width="wrap_content"
+		            android:layout_height="35dp"
+		            android:textSize="14sp"
+		            android:text="按住录音"
+		            />
+		        
+		        <Button 
+		            android:id="@+id/answersend2"
+		            android:layout_width="wrap_content"
+		            android:layout_height="35dp"
+		            android:textSize="14sp"
+		            android:layout_marginLeft="20dp"
+		            android:text="提交"
+		            />
+		     </LinearLayout>
+		   </LinearLayout>  
+		</LinearLayout>
+		
+	</LinearLayout>
+  			         
+</ScrollView>
+</RelativeLayout>

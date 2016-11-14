@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@drawable/top"
+        android:gravity="center_vertical" >
+
+        <include layout="@layout/commom_back_btn" />
+
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="注册信息"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+  <ScrollView
+      android:id="@+id/scrollView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/main_title">
+        
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/main_title"
+        android:background="@android:color/white" >
+
+        <LinearLayout
+            android:id="@+id/main_top"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="10dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    android:text="带*号为必填栏，本站为您的注册保密，凡是上传的证件或联系电话等个人信息不会显示在界面上。"
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/btn_gray_normal" />
+
+            <RelativeLayout
+                android:id="@+id/rl_username"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="*帐号："
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_username"
+                    android:background="@drawable/edit_text_nborder"
+                    android:hint="不超过10个英文字母"
+                    android:maxLength="10"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp" >
+
+                    <requestFocus />
+                </EditText>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/btn_gray_normal" />
+
+            <RelativeLayout
+                android:id="@+id/rl_nick"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tv_nick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="*昵称："
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+
+                <EditText
+                    android:id="@+id/nick"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_nick"
+                    android:background="@drawable/edit_text_nborder"
+                    android:ems="10"
+                    android:hint="不超过5个中文"
+                    android:maxLength="5"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/btn_gray_normal" />
+
+            <RelativeLayout
+                android:id="@+id/rl_password"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tv_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="*密码："
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_password"
+                    android:background="@drawable/edit_text_nborder"
+                    android:hint="6-10位，区分大小写"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:maxLength="10"
+                    android:textColorHint="#b3b3b3"
+                    android:inputType="textPassword"
+                    android:textSize="11sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/btn_gray_normal" />
+
+            <RelativeLayout
+                android:id="@+id/rl_mail"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tv_mail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="*邮箱："
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+
+                <EditText
+                    android:id="@+id/mail"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_mail"
+                    android:background="@drawable/edit_text_nborder"
+                    android:ems="10"
+                    android:hint="输入邮箱地址"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/btn_gray_normal" />
+
+            <RelativeLayout
+                android:id="@+id/rl_gender"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tv_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="*性别："
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+
+                <RadioGroup
+                    android:id="@+id/gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/tv_gender"
+                    android:orientation="horizontal" >
+
+                    <RadioButton
+                        android:id="@+id/male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="男"
+                        android:textSize="11sp" />
+
+                    <RadioButton
+                        android:id="@+id/female "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="女"
+                        android:textSize="11sp" />
+                </RadioGroup>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/btn_gray_normal" />
+
+            <RelativeLayout
+                android:id="@+id/rl_brith"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tv_brith"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="出生日期"
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+
+                <TextView
+                    android:id="@+id/brith"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_brith"
+                    android:background="@drawable/edit_text_nborder"
+                    android:ems="10"
+                    android:hint=""
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp"
+                    android:gravity="center_vertical"/>
+            </RelativeLayout>
+            
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/main_identity"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/main_top"
+            android:orientation="vertical" >
+            
+            <RelativeLayout
+                android:id="@+id/rl_sfbt"
+                android:layout_width="match_parent"
+                android:layout_height="20dip"
+                android:background="#CCCCCC"
+                android:padding="0dip" >
+
+                <TextView
+                    android:id="@+id/tv_sftitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="身份属性"
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_teacher"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tv_teacher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="25dip"
+                    android:text="教师"
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+
+                <EditText
+                    android:id="@+id/et_th_credential"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_teacher"
+                    android:background="@drawable/edit_text_nborder"
+                    android:ems="10"
+                    android:hint="请拍照上传您的教师资格证"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp" 
+                    android:editable="false"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/btn_gray_normal" />
+            
+			<LinearLayout 
+			    android:id="@+id/ll_th_attr"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+			    >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tv_szxx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="*您所在学校："
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif"
+                    android:gravity="top" />
+
+                <EditText
+                    android:id="@+id/et_th_sf"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_szxx"
+                    android:background="@drawable/edit_text_nborder"
+                    android:hint="点击选择省份"
+                    android:editable="false"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp" />
+                
+                <EditText
+                    android:id="@+id/et_th_school"
+                    android:layout_width="fill_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_szxx"
+                    android:layout_below="@+id/et_th_sf"
+                    android:layout_toLeftOf="@+id/sp_th_grade" 
+                    android:background="@drawable/edit_text_nborder"
+                    android:hint="填写学校全称"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp" />
+                
+                <Spinner
+	                android:id="@+id/sp_th_grade"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+                	android:layout_marginRight="10dp"
+                    android:layout_below="@+id/et_th_sf"
+                    android:textSize="11sp"
+					android:layout_alignParentRight="true"/>   
+                
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/btn_gray_normal" />
+            
+            <RelativeLayout
+                android:id="@+id/rl_subject"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tv_xk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="*学科："
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+
+                <Spinner
+	                android:id="@+id/sp_th_subject"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:layout_toRightOf="@+id/tv_xk" />
+
+                <TextView
+                    android:id="@+id/tv_js"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="5dp"
+                    android:layout_toRightOf="@+id/sp_th_subject"
+                    android:text="教师"
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+            </RelativeLayout>
+			</LinearLayout>
+			
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dip"
+                android:background="@color/btn_gray_normal" />
+            
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tv_student"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="25dip"
+                    android:text="中小学生"
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/btn_gray_normal" />
+            <RelativeLayout
+                android:id="@+id/rl_st_attr"
+                android:layout_width="match_parent"
+                android:layout_height="80dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" 
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_szxx2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="*您所在学校："
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:gravity="top" />
+
+                <EditText
+                    android:id="@+id/et_st_sf"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_szxx2"
+                    android:background="@drawable/edit_text_nborder"
+                    android:hint="点击选择省份"
+                    android:editable="false"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp" />
+                
+                <EditText
+                    android:id="@+id/et_st_school"
+                    android:layout_width="fill_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_szxx2"
+                    android:layout_toLeftOf="@+id/sp_st_grade" 
+                    android:layout_below="@+id/et_st_sf"
+                    android:background="@drawable/edit_text_nborder"
+                    android:hint="填写学校全称"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp" />
+                
+                <Spinner
+	                android:id="@+id/sp_st_grade"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_st_sf"
+                    android:layout_toLeftOf="@+id/et_st_class" />                
+                
+                <EditText
+                    android:id="@+id/et_st_class"
+                    android:layout_width="25dp"
+                    android:layout_height="39dp"
+                    android:layout_below="@+id/et_st_sf"
+                    android:layout_toLeftOf="@+id/tv_st_b" 
+                    android:background="@drawable/edit_text_nborder"
+                    android:hint="班级"
+                    android:paddingRight="4dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp"
+                    android:inputType="numberSigned" />
+                
+                <TextView
+                    android:id="@+id/tv_st_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="39dp"
+                    android:layout_below="@+id/et_st_sf"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="10dip"
+                    android:text="班"
+                    android:textColor="@android:color/black"
+                    android:gravity="center_vertical"
+                    android:textSize="11sp"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dip"
+                android:background="@color/btn_gray_normal" />
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/tv_college"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="25dip"
+                    android:text="大学生"
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+
+                <EditText
+                    android:id="@+id/et_st_credential"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_college"
+                    android:background="@drawable/edit_text_nborder"
+                    android:ems="10"
+                    android:hint="请拍照上传您的学生证"
+                    android:editable="false"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp"
+               	 	android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/btn_gray_normal" />
+            
+            <RelativeLayout
+			    android:id="@+id/rl_col_attr"
+                android:layout_width="match_parent"
+                android:layout_height="80dip"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" 
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_szxx3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="*您所在学校："
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:gravity="top"/>
+
+                <EditText
+                    android:id="@+id/et_col_sf"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_szxx3"
+                    android:background="@drawable/edit_text_nborder"
+                    android:hint="点击选择省份"
+                    android:editable="false"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp" />
+                
+                <EditText
+                    android:id="@+id/et_col_school"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:layout_toRightOf="@+id/tv_szxx3"
+                    android:layout_below="@+id/et_col_sf"
+                    android:background="@drawable/edit_text_nborder"
+                    android:hint="填写学校全称"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColorHint="#b3b3b3"
+                    android:textSize="11sp" />
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/rl_tbsm"
+                android:layout_width="match_parent"
+                android:layout_height="20dip"
+                android:background="#CCCCCC"
+                android:padding="0dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text="特别声明"
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+                                
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_bottom_selector"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/statement"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dip"
+                    android:text=""
+                    android:textColor="@android:color/black"
+                    android:textSize="11sp"
+                    android:typeface="serif" />
+
+            </RelativeLayout>
+        </LinearLayout>
+        
+        <RadioGroup
+            android:id="@+id/rg_identity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/main_top"
+            android:layout_marginLeft="5dp"
+            android:paddingTop="30dp" >
+
+            <RadioButton
+                android:id="@+id/rb_teacher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" 
+                android:text=""/>
+
+            <RadioButton
+                android:id="@+id/rb_student"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="140dp" />
+
+            <RadioButton
+                android:id="@+id/rb_college"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="20dp" />
+
+        </RadioGroup>
+	   <RelativeLayout
+	        android:id="@+id/register"
+	        android:layout_width="match_parent"
+	        android:layout_height="@dimen/height_top_bar"
+	        android:gravity="center_vertical" 
+	        android:layout_below="@+id/main_identity">
+	
+	        <Button
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:background="@drawable/top"
+	            android:onClick="register"
+	            android:paddingBottom="7dp"
+	            android:paddingTop="7dp"
+	            android:text="免费注册"
+	            android:textSize="20sp" />
+	        
+	    </RelativeLayout>
+    </RelativeLayout>
+
+   </ScrollView>
+   
+</RelativeLayout>

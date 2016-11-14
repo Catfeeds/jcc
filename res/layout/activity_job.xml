@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@drawable/top"
+        android:gravity="center_vertical" >
+                
+        <include layout="@layout/commom_back_btn" />
+
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="就业"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/ll_menu"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/main_title"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#CCCCCC"
+            android:layout_margin="10dp"
+			android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:text="省|市" />        
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@+id/tv_area"
+			android:layout_centerVertical="true"
+            android:layout_marginLeft="-5dp"
+            android:textSize="35sp"
+            android:gravity="center_vertical"
+            android:text=">" />
+        
+        <TextView
+            android:id="@+id/my_resume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+        	android:background="#009933"
+            android:layout_margin="10dp"
+			android:layout_centerVertical="true"
+            android:textColor="#ffffff"
+            android:padding="5dp"
+            android:text="我的简历" />
+
+        <View 
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray_pressed"
+            android:layout_alignParentBottom="true"
+            />
+	</RelativeLayout>	
+	
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_menu"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/lv_job_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </ListView>
+
+	</LinearLayout>		         
+</RelativeLayout>

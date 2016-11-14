@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">    
+    
+	<RelativeLayout
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@drawable/top"
+        android:gravity="center_vertical" 
+        android:visibility="gone">
+
+        <include layout="@layout/commom_back_btn" />
+
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text=""
+            android:textColor="#fff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+         android:layout_below="@+id/main_title">
+		<GridView
+		    android:id="@+id/gv_friend_list"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:numColumns="3" 
+	       	android:gravity="center_horizontal|center_vertical">
+		</GridView>
+ 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:id="@+id/progress_bar">
+	        <ProgressBar
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/now_refresh_list"
+                android:layout_gravity="center_horizontal"/>
+	    </LinearLayout>
+        
+    </FrameLayout>
+</RelativeLayout>

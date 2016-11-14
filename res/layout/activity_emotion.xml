@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@drawable/top"
+        android:gravity="center_vertical" >
+                
+        <include layout="@layout/commom_back_btn" />
+
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="情感辅导"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+    </RelativeLayout>    
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_title"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        android:text=""/>    
+    
+    <LinearLayout
+        android:id="@+id/ll_acc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/user"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="帐号" />
+
+        <EditText
+            android:id="@+id/nick"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" 
+            android:hint="昵称" />
+
+	</LinearLayout>	
+    
+    <LinearLayout
+        android:id="@+id/ll_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_acc"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/order"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+        	android:background="#009933"
+            android:layout_weight="1"
+        	android:layout_margin="10dp"
+        	android:textColor="#fff"
+        	android:text="预约" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+        	android:background="#99bb00"
+            android:layout_weight="1"
+        	android:layout_margin="10dp"
+        	android:textColor="#fff"
+        	android:text="取消" />
+
+	</LinearLayout>		         
+</RelativeLayout>

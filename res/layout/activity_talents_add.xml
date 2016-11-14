@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <RelativeLayout
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@drawable/top"
+        android:gravity="center_vertical" >
+                
+        <include layout="@layout/commom_back_btn" />
+
+        <TextView
+            android:id="@+id/message_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="师生风采"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+        
+    </RelativeLayout>       
+        
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_title"
+        android:orientation="horizontal"
+        android:layout_margin="15dp">
+
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="标题"
+            android:ems="8" />
+	</LinearLayout>
+	    
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_title"
+        android:orientation="horizontal"
+        android:layout_margin="15dp"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="250dp"
+            android:layout_weight="1"
+            android:hint="内容（限150字）"
+            android:maxLength="150"/>
+	</LinearLayout>
+	
+    <GridView
+        android:id="@+id/gv_image"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:numColumns="3" 
+		android:layout_below="@+id/ll_content"
+		android:layout_marginLeft="15dp"
+		android:verticalSpacing="8dp"
+		android:horizontalSpacing="3dp">
+    </GridView>
+	
+    <Button
+        android:id="@+id/bt_submit"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="#009933"
+        android:text="上传"
+        android:textColor="@android:color/white" 
+      	android:layout_below="@+id/gv_image" />
+    
+  	<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center_vertical|center_horizontal"
+            android:visibility="gone"
+            android:id="@+id/progress_bar">
+	        <ProgressBar
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="正在上传，请稍后"
+                android:layout_gravity="center_horizontal"/>
+	    </LinearLayout>
+</RelativeLayout>

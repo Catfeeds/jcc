@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+	 
+    <LinearLayout
+        android:id="@+id/ll_add_resume"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+        
+	    <Button
+	        android:id="@+id/add_resume"
+	        android:layout_width="match_parent"
+	        android:layout_height="44dp"
+	        android:layout_marginBottom="12dp"
+	        android:layout_marginLeft="20dip"
+	        android:layout_marginRight="20dip"
+	        android:layout_marginTop="10dp"
+	        android:background="#009933"
+	        android:text="无简历 编写简历"
+	        android:textColor="@android:color/white"
+	        android:textSize="18sp" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/ll_progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+		
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"/>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/ll_submit_resume"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal" >
+        
+	        <EditText
+	            android:id="@+id/default_resume"
+	            android:layout_width="fill_parent"
+	            android:layout_height="40dp"
+	            android:layout_toLeftOf="@+id/edit_name"
+	            android:gravity="center"
+	            android:text="默认简历"
+	            android:textColor="@color/gray_normal"
+	            android:layout_centerVertical="true"
+	            android:textSize="18sp"
+	            android:layout_marginLeft="20dp" />
+	        
+	        <TextView 
+	            android:id="@+id/edit_name"
+	            android:layout_width="40dp"
+	            android:layout_height="40dp"
+	            android:background="@android:color/darker_gray"
+	            android:layout_alignParentRight="true"
+	            android:layout_centerVertical="true"
+	            android:text="修改"
+	            android:gravity="center"
+	            android:layout_marginRight="20dp"
+	            />
+		</RelativeLayout>
+        
+	    <Button
+	        android:id="@+id/bt_apply"
+	        android:layout_width="match_parent"
+	        android:layout_height="44dp"
+	        android:layout_marginBottom="12dp"
+	        android:layout_marginLeft="20dip"
+	        android:layout_marginRight="20dip"
+	        android:layout_marginTop="10dp"
+	        android:background="#009933"
+	        android:text="投递"
+	        android:textColor="@android:color/white"
+	        android:textSize="18sp" />
+      
+    </LinearLayout>
+</LinearLayout>

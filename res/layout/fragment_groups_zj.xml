@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@drawable/top"
+        android:gravity="center_vertical" >
+
+      <include 
+          layout="@layout/commom_back_btn"
+          />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="群组"
+            android:textColor="@color/bottom_text_color_normal"
+            android:textSize="18sp" />
+    
+    </RelativeLayout>
+
+    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        
+         <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_layout"
+            android:layout_height="match_parent" 
+            android:layout_width="match_parent">
+            
+            <LinearLayout
+	            android:layout_height="match_parent" 
+	            android:layout_width="match_parent" 
+    			android:orientation="vertical">
+    			
+            <RelativeLayout                
+	            android:id="@+id/rl_my_create_groups"
+	            android:layout_height="@dimen/height_top_bar" 
+	            android:layout_width="match_parent"
+	            android:gravity="center_vertical"
+	            android:background="#F5E599">
+	            
+               <TextView 
+		            android:id="@+id/tv_my_create_groups"
+		            android:layout_height="wrap_content" 
+		            android:layout_width="wrap_content"
+		            android:layout_alignParentLeft="true"
+		            android:layout_marginLeft="15dp"
+		            android:textSize="19sp"
+		            android:text="我创建的群" />
+		            
+               <TextView 
+		            android:id="@+id/create_groups"
+		            android:layout_height="wrap_content" 
+		            android:layout_width="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_marginRight="15dp"
+		            android:textSize="19sp"
+		            android:text="创建新群" />
+               
+            </RelativeLayout>
+	        <View 
+	            android:layout_width="match_parent"
+	            android:layout_height="1px"
+	            android:background="@color/gray_pressed"
+	            
+	            />
+		    <ListView
+		        android:id="@+id/mc_groups_list"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:maxHeight="300dp"
+		        android:background="@android:color/transparent"
+		        android:cacheColorHint="#00000000"
+		        android:descendantFocusability="afterDescendants"
+		        android:divider="#D4D4D4"
+		        android:dividerHeight="1px"
+		        android:fastScrollAlwaysVisible="false"
+		        android:fastScrollEnabled="false" />
+
+            <RelativeLayout                
+	            android:id="@+id/rl_my_join_groups"
+	            android:layout_height="@dimen/height_top_bar" 
+	            android:layout_width="match_parent"
+	            android:gravity="center_vertical"
+	            android:background="#F5E599">
+	            
+               <TextView 
+		            android:id="@+id/tv_my_join_groups"
+		            android:layout_height="wrap_content" 
+		            android:layout_width="wrap_content"
+		            android:layout_alignParentLeft="true"
+		            android:layout_marginLeft="15dp"
+		            android:textSize="19sp"
+		            android:text="我加入的群" />
+               
+            </RelativeLayout>
+	        <View 
+	            android:layout_width="match_parent"
+	            android:layout_height="1px"
+	            android:background="@color/gray_pressed"
+	            
+	            />
+		    <ListView
+		        android:id="@+id/mj_groups_list"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:background="@android:color/transparent"
+		        android:cacheColorHint="#00000000"
+		        android:descendantFocusability="afterDescendants"
+		        android:divider="#D4D4D4"
+		        android:dividerHeight="1px"
+		        android:fastScrollAlwaysVisible="false"
+		        android:fastScrollEnabled="false" />
+		    
+            <RelativeLayout                
+	            android:id="@+id/rl_other_groups"
+	            android:layout_height="@dimen/height_top_bar" 
+	            android:layout_width="match_parent"
+	            android:gravity="center_vertical"
+	            android:background="#F5E599">
+	            
+               <TextView 
+		            android:id="@+id/tv_other_groups"
+		            android:layout_height="wrap_content" 
+		            android:layout_width="wrap_content"
+		            android:layout_alignParentLeft="true"
+		            android:layout_marginLeft="15dp"
+		            android:textSize="19sp"
+		            android:text="各种群" />
+		            
+               <TextView 
+		            android:id="@+id/search_groups"
+		            android:layout_height="wrap_content" 
+		            android:layout_width="wrap_content"
+		            android:layout_alignParentRight="true"
+		            android:layout_marginRight="15dp"
+		            android:textSize="19sp"
+		            android:text="搜索" />
+               
+            </RelativeLayout>
+	        <View 
+	            android:layout_width="match_parent"
+	            android:layout_height="1px"
+	            android:background="@color/gray_pressed"	            
+	            />
+		    <ListView
+		        android:id="@+id/other_groups_list"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:background="@android:color/transparent"
+		        android:cacheColorHint="#00000000"
+		        android:descendantFocusability="afterDescendants"
+		        android:divider="#D4D4D4"
+		        android:dividerHeight="1px"
+		        android:fastScrollAlwaysVisible="false"
+		        android:fastScrollEnabled="false" />
+		 </LinearLayout>
+		 </android.support.v4.widget.SwipeRefreshLayout>
+		 
+	    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:id="@+id/progress_bar">
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/refreshing_group_list"
+                android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

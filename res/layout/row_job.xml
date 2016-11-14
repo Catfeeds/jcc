@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/mm_listitem"
+        android:duplicateParentState="true" >
+
+        <RelativeLayout
+            android:id="@+id/ll_title"
+            android:layout_width="match_parent"
+            android:layout_height="21dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/jump"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/dw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="单位："
+                android:textSize="15sp" />
+            
+            <TextView
+                android:id="@+id/company"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/dw"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text=""
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_content"
+            android:layout_width="fill_parent"
+            android:layout_height="21dp"
+            android:layout_below="@+id/ll_title"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center_vertical"
+            android:layout_toLeftOf="@+id/jump" >
+
+            <TextView
+                android:id="@+id/zw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="职位："
+                android:textSize="13sp" />
+            
+            <TextView
+                android:id="@+id/position"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/zw"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text=""
+                android:textSize="13sp"  />
+        </RelativeLayout>
+        
+	    <TextView 
+	        android:id="@+id/jump"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        android:layout_alignParentRight="true"
+	        android:gravity="center_vertical"
+	        android:textSize="25sp"
+	        android:text="》"/>
+    </RelativeLayout>
+	</LinearLayout>

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eff2f6"
+    android:orientation="vertical" >
+    
+	<RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_top_bar"
+        android:background="@drawable/top"
+        android:gravity="center_vertical" >
+
+        <include layout="@layout/commom_back_btn" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我的简历"
+            android:textColor="#fff"
+            android:textSize="18sp" />        
+        
+        <TextView
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:text="编辑"
+            android:textColor="#fff"
+            android:textSize="16sp" />
+    </RelativeLayout>
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        >
+        
+     <ScrollView
+	      android:id="@+id/scrollView"
+	      android:layout_width="match_parent"
+	      android:layout_height="wrap_content"
+	      >
+               
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
+                    
+        <LinearLayout 
+            android:id="@+id/ll_name"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            >
+            <TextView 
+				android:layout_width="wrap_content"                
+				android:layout_height="wrap_content"
+				android:layout_margin="5dp"
+				android:layout_alignParentLeft="true"
+				android:text="姓名："
+				android:textSize="16sp"
+				android:gravity="center_vertical"
+                android:background="#FFFFFF"
+                />
+            
+            <EditText 
+                android:id="@+id/name"
+				android:layout_width="match_parent"                
+				android:layout_height="wrap_content"
+				android:layout_margin="5dp"
+				android:layout_alignParentRight="true"
+				android:textSize="16sp"
+				android:gravity="center_vertical"
+				android:singleLine="true"
+                android:text=""
+                />
+        </LinearLayout>
+       
+        <LinearLayout 
+            android:id="@+id/ll_gender"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#ffffff"
+            >
+			
+	         <TextView
+	             android:id="@+id/tv_gender"
+	             android:layout_width="wrap_content"
+	             android:layout_height="wrap_content"
+	             android:layout_centerVertical="true"
+				 android:layout_margin="5dp"
+	             android:text="性别："
+	             android:textSize="16sp" />
+	
+	         <RadioGroup
+	             android:id="@+id/gender"
+	             android:layout_width="wrap_content"
+	             android:layout_height="wrap_content"
+	             android:orientation="horizontal" >
+	
+	             <RadioButton
+	                 android:id="@+id/male"
+	                 android:layout_width="wrap_content"
+	                 android:layout_height="wrap_content"
+	                 android:checked="true"
+	                 android:text="男"
+	                 android:textSize="16sp"/>
+	
+	             <RadioButton
+	                 android:id="@+id/female "
+	                 android:layout_width="wrap_content"
+	                 android:layout_height="wrap_content"
+	                 android:text="女"
+	                 android:textSize="16sp" />
+	         </RadioGroup>
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:id="@+id/ll_brith"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_brith"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="出生日期："
+                android:textSize="16sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/brith"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="datetime"
+                android:layout_margin="5dp"
+                android:singleLine="true"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:id="@+id/ll_education"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_education"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="学历："
+                android:textSize="16sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/education"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:singleLine="true"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:id="@+id/ll_intention"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_intension"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="求职意向："
+                android:textSize="16sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/intension"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:singleLine="true"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:id="@+id/ll_salary"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_salary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="期望报酬："
+                android:textSize="16sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/salary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:singleLine="true"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:id="@+id/ll_specialty"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_specialty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="本人特长："
+                android:textSize="16sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/specialty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:singleLine="true"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_awards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="获过奖项："
+                android:textSize="16sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/awards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:singleLine="true"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_school"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="就读学校："
+                android:textSize="16sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/school"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:singleLine="true"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_major"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="专业；"
+                android:textSize="16sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/major"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:singleLine="true"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="联系电话；"
+                android:textSize="16sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/etphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:layout_margin="5dp"
+                android:singleLine="true"
+                android:maxLength="11"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:id="@+id/ll_mail"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dip"
+                android:text="邮箱："
+                android:textSize="16sp"
+                android:typeface="serif" />
+
+            <EditText
+                android:id="@+id/mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:layout_margin="5dp"
+                android:singleLine="true"
+                android:textColorHint="#b3b3b3"
+                android:textSize="16sp" />
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:id="@+id/ll_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:paddingTop="10dp"
+            android:paddingBottom="95dp"
+            android:orientation="vertical"
+            >
+            <TextView 
+				android:layout_width="wrap_content"                
+				android:layout_height="wrap_content"
+				android:layout_margin="5dp"
+				android:layout_alignParentLeft="true"
+				android:text="上传近照"
+				android:textSize="16sp"
+				android:gravity="center_vertical"
+                android:background="#FFFFFF"
+                />
+            	            
+	        <RelativeLayout  
+		        android:id="@+id/container"  
+		        android:layout_width="match_parent"  
+		        android:layout_height="wrap_content"  
+		        android:clipChildren="false"  
+		        android:gravity="center_horizontal"  
+		        android:layerType="software"  
+		        android:orientation="horizontal"> 
+	            
+               <com.easemob.chatuidemo.widget.AutoGridView
+	                android:id="@+id/agv_album"
+	                android:layout_width="match_parent"
+                	android:layout_height="match_parent"
+	                android:horizontalSpacing="2dp"
+	                android:listSelector="@null"
+	                android:numColumns="4"
+	                android:verticalSpacing="2dp"  />
+	
+	            <ImageView
+	                android:id="@+id/iv_goto"
+	                android:layout_width="wrap_content"
+	                android:layout_height="fill_parent"
+	                android:src="@drawable/right_jt"
+	                android:layout_alignParentRight="true"
+	                android:layout_marginRight="5dp"
+	                android:visibility="gone" />
+			        
+	    	</RelativeLayout> 
+        </LinearLayout>
+       </LinearLayout>
+      </ScrollView>
+                
+      <LinearLayout 
+         android:id="@+id/ll_bottom"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="#ffffff"
+         android:orientation="vertical"
+         android:layout_alignParentBottom="true"
+         >
+    
+         <LinearLayout 
+            android:id="@+id/ll_oper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+         	android:layout_margin="10dp"
+        	android:visibility="gone"
+            >
+	        <LinearLayout 
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:gravity="center_horizontal"
+	            >
+	            <Button
+			        android:id="@+id/bt_save"
+			        android:layout_width="100dp"
+			        android:layout_height="30dp"
+			        android:background="#009933"
+			        android:textSize="18sp"
+			        android:text="保存"
+			        android:textColor="@android:color/white" 
+			        />
+	        </LinearLayout>
+	        
+	        <LinearLayout 
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_weight="1"
+	            android:gravity="center_horizontal"
+	            >
+	            <Button
+			        android:id="@+id/bt_resume_name"
+			        android:layout_width="100dp"
+			        android:layout_height="30dp"
+			        android:background="#009933"
+			        android:textSize="18sp"
+			        android:text="简历名称"
+			        android:textColor="@android:color/white"
+			        />
+	        </LinearLayout>	        
+	    </LinearLayout>
+	        
+        <LinearLayout 
+            android:id="@+id/ll_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dip"
+            android:gravity="center_horizontal|center_vertical"
+            >
+            <Button
+		        android:id="@+id/bt_submit"
+		        android:layout_width="100dp"
+		        android:layout_height="30dp"
+		        android:background="#009933"
+		        android:textSize="18sp"
+		        android:text="投递"
+		        android:textColor="@android:color/white"     
+		        />
+        </LinearLayout>
+       </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
