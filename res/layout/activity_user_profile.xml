@@ -197,7 +197,7 @@
                 />
             <TextView 
                 android:id="@+id/interest"
-				android:layout_width="wrap_content"                
+				android:layout_width="fill_parent"                
 				android:layout_height="wrap_content"
 				android:layout_margin="5dp"
 				android:layout_alignParentRight="true"
@@ -235,10 +235,9 @@
                 />
             <TextView 
                 android:id="@+id/food"
-				android:layout_width="wrap_content"                
+				android:layout_width="fill_parent"                
 				android:layout_height="wrap_content"
 				android:layout_margin="5dp"
-				android:layout_alignParentRight="true"
 				android:paddingRight="20dip"
 				android:textSize="16sp"
 				android:gravity="center_vertical"
@@ -273,7 +272,7 @@
                 />
             <TextView 
                 android:id="@+id/star"
-				android:layout_width="wrap_content"                
+				android:layout_width="fill_parent"                
 				android:layout_height="wrap_content"
 				android:layout_margin="5dp"
 				android:layout_alignParentRight="true"
@@ -311,7 +310,7 @@
                 />
             <TextView 
                 android:id="@+id/tour"
-				android:layout_width="wrap_content"                
+				android:layout_width="fill_parent"                
 				android:layout_height="wrap_content"
 				android:layout_margin="5dp"
 				android:layout_alignParentRight="true"
@@ -349,7 +348,7 @@
                 />
             <TextView 
                 android:id="@+id/marjor"
-				android:layout_width="wrap_content"                
+				android:layout_width="fill_parent"                
 				android:layout_height="wrap_content"
 				android:layout_margin="5dp"
 				android:layout_alignParentRight="true"

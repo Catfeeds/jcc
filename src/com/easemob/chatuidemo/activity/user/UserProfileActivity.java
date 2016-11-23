@@ -80,6 +80,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 	private LinearLayout llEditFriendName;
     private LinearLayout llChat;
     private LinearLayout llDelFriend;
+    private LinearLayout llBottom;
     private RelativeLayout rlPicContainer;
 	private String username;
     private String nick;
@@ -122,6 +123,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
         llChat = (LinearLayout) findViewById(R.id.ll_chat);
         rlPicContainer = (RelativeLayout) findViewById(R.id.container);
         llDelFriend = (LinearLayout) findViewById(R.id.ll_delfriend);
+        llBottom = (LinearLayout) findViewById(R.id.ll_bottom);
 		iconRightArrow = (ImageView) findViewById(R.id.ic_right_arrow);
 		gvAlbum = (GridView) findViewById(R.id.gv_album);
 		ivGoto = (ImageView)findViewById(R.id.iv_goto);
@@ -132,6 +134,8 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
         if(!cache.exists()){
             cache.mkdirs();
         }        
+        if(username.equals(EMChatManager.getInstance().getCurrentUser()))
+            llBottom.setVisibility(View.GONE);
 	}
 	
 	private void initListener() {

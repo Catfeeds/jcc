@@ -451,7 +451,8 @@ public class MainActivity extends BaseActivity implements EMEventListener {
 
        
         menu.add(Menu.NONE, Menu.FIRST + 0, 0, "资料");         
-        menu.add(Menu.NONE, Menu.FIRST + 1, 1, "注销");   
+        menu.add(Menu.NONE, Menu.FIRST + 1, 1, "注销");          
+        menu.add(Menu.NONE, Menu.FIRST + 2, 2, "修改信息");  
  
         MenuInflater menuInflater = getMenuInflater();  
         menuInflater.inflate(R.menu.popupmenu, menu);  
@@ -471,6 +472,11 @@ public class MainActivity extends BaseActivity implements EMEventListener {
                    break;
                case Menu.FIRST + 1: 
                    logout();
+                   break;
+               case Menu.FIRST + 2: 
+                   intent = new Intent(MainActivity.this, RegisterActivity.class);
+                   intent.putExtra("action", "update");
+                   startActivity(intent);
                    break;
                default:  
                    break;  

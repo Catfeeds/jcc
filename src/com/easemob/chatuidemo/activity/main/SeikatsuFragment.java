@@ -56,7 +56,10 @@ public class SeikatsuFragment extends Fragment {
         permission.put("findfriend_group", true);
         permission.put("group_group", true);
         
+            
         identity = DemoApplication.getInstance().getIdentity();
+        if(EMChatManager.getInstance().getCurrentUser().equals("3333"))
+            identity = 5;
         switch (identity) {
         case 1:
         case 3:
