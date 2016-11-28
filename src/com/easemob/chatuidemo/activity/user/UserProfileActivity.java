@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.Header;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -57,8 +59,12 @@ import com.easemob.chatuidemo.domain.Info;
 import com.easemob.chatuidemo.domain.User;
 import com.easemob.chatuidemo.utils.ConnServer;
 import com.easemob.chatuidemo.utils.DialogDemo;
+import com.easemob.chatuidemo.utils.ImageUtils;
 import com.easemob.chatuidemo.utils.MD5;
 import com.easemob.chatuidemo.utils.UserUtils;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 import com.squareup.picasso.Picasso;
 
 public class UserProfileActivity extends BaseActivity implements OnClickListener{
@@ -84,6 +90,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
     private RelativeLayout rlPicContainer;
 	private String username;
     private String nick;
+    private String mAvatar = "";
     private List<Map<String, Object>> mListData;
     private List<Map<String, Object>> mAblumData;
     private List<Map<String, Object>> mReturnData;
@@ -136,6 +143,8 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
         }        
         if(username.equals(EMChatManager.getInstance().getCurrentUser()))
             llBottom.setVisibility(View.GONE);
+        
+        loadLocalAvatar(username, headAvatar);
 	}
 	
 	private void initListener() {
@@ -179,8 +188,8 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 		btSave.setOnClickListener(this);
 		
         new GetDataThread(mHandler).start();
-        new GetUserPicThread(mHandler).start();
-        asyncFetchUserInfo(username);
+        //new GetUserPicThread(mHandler).start();
+        //asyncFetchUserInfo(username);
 	}
 	
 	private void setText(Object object){
@@ -517,34 +526,96 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 	
 	private void uploadUserAvatar(final InputStream data) {
 		dialog = ProgressDialog.show(this, getString(R.string.dl_update_photo), getString(R.string.dl_waiting));
-		new Thread(new Runnable() {
+		AsyncHttpClient client = new AsyncHttpClient();  
+        RequestParams params = new RequestParams();  
+        params.put("method", "update_avatar"); 
+        params.put("uploadedfile", data);
+        params.put("user", EMChatManager.getInstance().getCurrentUser());
+        // 上传文件  
+        client.post("http://"+getApplicationContext().getResources().getString(R.string.server)+"/api.php", params, new AsyncHttpResponseHandler() {  
 
-			@Override
-			public void run() {
-				((DemoHXSDKHelper)HXSDKHelper.getInstance()).uploadUserAvatar(data,new EMValueCallBack<String>() {
-		            
-		            @Override
-		            public void onSuccess(String url) {
-                        dialog.dismiss();
+            @Override  
+            public void onSuccess(int statusCode, Header[] headers,  
+                    byte[] responseBody) {  
+                dialog.dismiss();
+                // 上传成功后要做的工作  
+                //Toast.makeText(TalentsAddActivity.this, "上传成功", Toast.LENGTH_LONG).show();  
+                //progress.setProgress(0);
+                ConnServer server = new ConnServer();
+                List<Map<String,Object>> Data = new ArrayList<Map<String,Object>>();
+
+                try {
+                    Data = server.parseJSON(responseBody);
+                    //System.out.println("responseBody:"+new String(responseBody)+";data:"+Data);
+                    if(Boolean.valueOf(Data.get(0).get("status").toString())){
+                        refrehAvatar(Data.get(0).get("msg").toString(), username);
                         Toast.makeText(UserProfileActivity.this, getString(R.string.toast_updatephoto_success),
                                 Toast.LENGTH_SHORT).show();
-		            }
-		            
-		            @Override
-		            public void onError(int error, String errorMsg) {
-                        dialog.dismiss();
-                        Toast.makeText(UserProfileActivity.this, errorMsg,
+                    }else{
+                        Toast.makeText(UserProfileActivity.this, Data.get(0).get("msg").toString(),
                                 Toast.LENGTH_SHORT).show();
-		                System.out.println("onError");
-		            }
-		        });
-
-			}
-		}).start();
+                        System.out.println("onError");
+                    }
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                    Toast.makeText(UserProfileActivity.this, Data.get(0).get("msg").toString(),
+                            Toast.LENGTH_SHORT).show();
+                    System.out.println("onError");
+                }
+            }  
+      
+            @Override  
+            public void onFailure(int statusCode, Header[] headers,  
+                    byte[] responseBody, Throwable error) {  
+                // 上传失败后要做到工作  
+                Toast.makeText(UserProfileActivity.this, "fail",
+                        Toast.LENGTH_SHORT).show();
+                System.out.println("onError");
+            }  
+      
+            @Override  
+            public void onProgress(int bytesWritten, int totalSize) {  
+                // TODO Auto-generated method stub  
+                super.onProgress(bytesWritten, totalSize);  
+                //int count = (int) ((bytesWritten * 1.0 / totalSize) * 100);  
+                // 上传进度显示  
+                //progress.setProgress(count);  
+                //Log.e("上传 Progress>>>>>", bytesWritten + " / " + totalSize);  
+            }  
+      
+            @Override  
+            public void onRetry(int retryNo) {  
+                // TODO Auto-generated method stub  
+                super.onRetry(retryNo);  
+                // 返回重试次数  
+            }          
+        }); 
 
 		dialog.show();
 	}
 	
+	private void refrehAvatar(String url, String username){
+	    ((DemoHXSDKHelper)HXSDKHelper.getInstance()).getUserProfileManager().setCurrentUserAvatar(url);
+        String name = MD5.getMD5(username+"avatar") + ".png";
+        File file = new File(Environment.getExternalStorageDirectory()+"/cache", name);  
+        // 如果图片存在本地缓存目录，则不去服务器下载   
+        Log.e("WEN","UserProfile file="+file.getAbsolutePath());
+        if (file.exists()) {
+            file.delete();
+        }
+	}
+	
+	private void loadLocalAvatar(String username, ImageView v){
+	    String name = MD5.getMD5(username+"avatar") + ".png";
+        File file = new File(Environment.getExternalStorageDirectory()+"/cache", name);  
+        // 如果图片存在本地缓存目录，则不去服务器下载   
+        if (file.exists()) {
+            System.out.println("isExist:"+file.getAbsolutePath());
+            Picasso.with(UserProfileActivity.this).load("file://"+file.getAbsolutePath()).placeholder(R.drawable.default_avatar).into(v);
+            mAvatar = file.getAbsolutePath();
+        }
+	}
 	
 	public byte[] Bitmap2Bytes(Bitmap bm){
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -572,6 +643,24 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 //        }else{
 //            Picasso.with(UserProfileActivity.this).load(R.drawable.default_avatar).into(headAvatar);
 //        }
+        if(mAvatar.equals("")){
+            String name = MD5.getMD5(username+"avatar") + ".png";
+            ((DemoHXSDKHelper)HXSDKHelper.getInstance()).savaFromNet(avatar, name, new EMValueCallBack<User>() {
+                
+                @Override
+                public void onSuccess(User user) {                    
+                    Log.e("WEN","UserProfile snfile="+user.getAvatar());
+                    Picasso.with(UserProfileActivity.this).load("file://"+user.getAvatar()).placeholder(R.drawable.default_avatar).into(headAvatar);
+                }
+                
+                @Override
+                public void onError(int arg0, String arg1) {
+                    // TODO Auto-generated method stub
+                    
+                }
+            });            
+        }
+        
         User user = new User(username);
         user.setAvatar(avatar);
         user.setNick(nick);

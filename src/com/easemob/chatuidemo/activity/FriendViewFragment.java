@@ -384,7 +384,7 @@ public class FriendViewFragment extends Fragment {
                 else{
                     if(mAvatarData.size()>0){
                         String avatar = mAvatarData.get(data.get(position).get("name").toString());
-                        if(!avatar.equals(""))
+                        if(avatar !=null && !avatar.equals(""))
                             Picasso.with(context).load(avatar).placeholder(R.drawable.default_avatar).into(holder.avatar);
                     }
                     holder.name.setText(data.get(position).get("name").toString());

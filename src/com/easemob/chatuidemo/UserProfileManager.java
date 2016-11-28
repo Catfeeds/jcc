@@ -174,7 +174,7 @@ public class UserProfileManager {
 		return HXPreferenceUtils.getInstance().getCurrentUserNick();
 	}
 
-	private String getCurrentUserAvatar() {
+	public String getCurrentUserAvatar() {
 		return HXPreferenceUtils.getInstance().getCurrentUserAvatar();
 	}
 

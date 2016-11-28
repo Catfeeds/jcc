@@ -15,7 +15,11 @@ package com.easemob.chatuidemo.utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -181,5 +185,32 @@ public class ImageUtils {
         BitmapDrawable bd = new BitmapDrawable(bitmap);
         // 因为BtimapDrawable是Drawable的子类，最终直接使用bd对象即可。
         return bd;
+    }
+    
+    public static File savaFromNet(String sUrl,File file){
+        try {
+            URL url = new URL(sUrl);  
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();  
+            conn.setConnectTimeout(5000);  
+            conn.setRequestMethod("GET");  
+            conn.setDoInput(true);  
+            if (conn.getResponseCode() == 200) { 
+
+                InputStream is = conn.getInputStream();  
+                FileOutputStream fos = new FileOutputStream(file);  
+                byte[] buffer = new byte[1024];  
+                int len = 0;  
+                while ((len = is.read(buffer)) != -1) {  
+                    fos.write(buffer, 0, len);  
+                    }  
+                is.close();  
+                fos.close();  
+                return file;
+            }
+        }catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
     }
 }

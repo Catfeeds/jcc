@@ -2,6 +2,7 @@ package com.easemob.chatuidemo.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -50,6 +51,7 @@ public class UserUtils {
      */
 	public static void setCurrentUserAvatar(Context context, ImageView imageView) {
 		User user = ((DemoHXSDKHelper)HXSDKHelper.getInstance()).getUserProfileManager().getCurrentUserInfo();
+		Log.e("WEN","UserUtils avatar="+user.getAvatar());
 		if (user != null && user.getAvatar() != null) {
 		    if(!user.getAvatar().equals(""))
 		        Picasso.with(context).load(user.getAvatar()).placeholder(R.drawable.default_avatar).into(imageView);

@@ -600,7 +600,8 @@ public class DemoHXSDKHelper extends HXSDKHelper{
          */
         @Override
         protected User doInBackground(String... arg0) {
-            User user = null;
+            Log.e("WEN","DemoHXSDK GetUserInfoTask");
+            User user = new User();
             String name = MD5.getMD5(arg0[0]+"avatar") + ".png";
             File file = new File(Environment.getExternalStorageDirectory()+"/cache", name);  
             // 如果图片存在本地缓存目录，则不去服务器下载   
@@ -637,7 +638,6 @@ public class DemoHXSDKHelper extends HXSDKHelper{
                                 }  
                             is.close();  
                             fos.close();  
-                            
                             user.setAvatar(file.getAbsolutePath());
                             user.setNick(ListData.get(0).get("nick").toString());
                         } else{
@@ -664,6 +664,17 @@ public class DemoHXSDKHelper extends HXSDKHelper{
         }
     }
     
+    private EMValueCallBack<User> userSaveCallBack;
+    public void asyncSaveUserInfo(String username,
+            EMValueCallBack<User> emValueCallBack) {
+        File cache = new File(Environment.getExternalStorageDirectory(),"cache");
+        if(!cache.exists()){
+            cache.mkdirs();
+        }   
+        this.userSaveCallBack = emValueCallBack;
+        new SaveUserAvatarTask().execute(username);
+        
+    }
     public class SaveUserAvatarTask extends AsyncTask<String, Void, Boolean> {
         
         @Override
@@ -735,7 +746,69 @@ public class DemoHXSDKHelper extends HXSDKHelper{
             super.onPostExecute(user);
         }
     }
+
+    private EMValueCallBack<User> sfnCallBack;
+    public void savaFromNet(String url,String filename,
+            EMValueCallBack<User> emValueCallBack) {
+        Log.e("WEN","DemoHXSDK savaFromNet");
+        File cache = new File(Environment.getExternalStorageDirectory(),"cache");
+        if(!cache.exists()){
+            cache.mkdirs();
+        }   
+        this.sfnCallBack = emValueCallBack;
+        new SavaFromNetTask().execute(url, filename);
+        
+    }
+    public class SavaFromNetTask extends AsyncTask<String, Void, Boolean> {
+        
+        @Override
+        protected void onPreExecute() {
+            // TODO Auto-generated method stub
+            super.onPreExecute();
+        }
+        
+        @Override
+        protected Boolean doInBackground(String... arg0) {
+            User user = new User();
+            File file = new File(Environment.getExternalStorageDirectory()+"/cache", arg0[1]);  
+            try {  
+                // 从网络上获取图片  
+                URL url = new URL(arg0[0]);  
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();  
+                conn.setConnectTimeout(5000);  
+                conn.setRequestMethod("GET");  
+                conn.setDoInput(true);  
+                if (conn.getResponseCode() == 200) { 
     
+                    InputStream is = conn.getInputStream();  
+                    FileOutputStream fos = new FileOutputStream(file);  
+                    byte[] buffer = new byte[1024];  
+                    int len = 0;  
+                    while ((len = is.read(buffer)) != -1) {  
+                        fos.write(buffer, 0, len);  
+                        }  
+                    is.close();  
+                    fos.close();
+                    user.setAvatar(file.getAbsolutePath());
+                } else{
+                    Log.e("asyncGetUserInfo","connect code:"+conn.getResponseCode());
+                }
+
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            return false;
+        }
+
+        /**
+         * 主要是更新UI的操作
+         */
+        @Override
+        protected void onPostExecute(Boolean file) {
+            super.onPostExecute(file);
+        }
+    }
     public void uploadUserAvatar(InputStream data, final EMValueCallBack<String> emValueCallBack) {
         AsyncHttpClient client = new AsyncHttpClient();  
         RequestParams params = new RequestParams();  

@@ -36,6 +36,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.InputMethodManager;
@@ -47,6 +48,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -132,6 +134,14 @@ public class ResumeActivity extends BaseActivity implements OnActionSheetSelecte
     private AutoGridView gvAlbum;
     protected StringBuffer mPicUrl = new StringBuffer();
     protected int mPicCount = 0;
+    private AlertDialog alertDialog;
+    private LinearLayout llAddResume;
+    private LinearLayout llSubmitResume;
+    private LinearLayout llProgressBar;
+    private Button btAddResume;
+    private TextView tvEditName;
+    private EditText etResumeName;
+    private ProgressBar bar;
 	
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -148,6 +158,7 @@ public class ResumeActivity extends BaseActivity implements OnActionSheetSelecte
         initListener();
         initData();
         
+        Log.e("Resume","mEdit="+mEdit);
         if(mEdit.equals("resume_update")){
             DialogDemo.show(this,2);
             new GetDataThread(handler).start();
@@ -176,7 +187,7 @@ public class ResumeActivity extends BaseActivity implements OnActionSheetSelecte
         etPhone = (EditText) findViewById(R.id.etphone);
         etMail = (EditText) findViewById(R.id.mail);
 		btSave = (Button) findViewById(R.id.bt_save);
-        btResName = (Button) findViewById(R.id.bt_save);
+        btResName = (Button) findViewById(R.id.bt_resume_name);
         btApply = (Button) findViewById(R.id.bt_submit);
 		gvAlbum = (AutoGridView) findViewById(R.id.agv_album);
 		ivGoto = (ImageView)findViewById(R.id.iv_goto);
@@ -280,6 +291,39 @@ public class ResumeActivity extends BaseActivity implements OnActionSheetSelecte
                 if(mPicCount == 0)
                     new SaveResumeThread(handler).start();
 //                new SaveResumeThread(handler).start();
+            }
+        });
+        
+        btResName.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View arg0) {
+                alertDialog = new AlertDialog.Builder(ResumeActivity.this).create();  
+                View alertDialogView = View.inflate(ResumeActivity.this, R.layout.activity_resume_diag, null);
+                alertDialog.setView(alertDialogView);
+                alertDialog.show();
+                Window window = alertDialog.getWindow();  
+                window.setContentView(R.layout.activity_resume_diag);  
+                llAddResume = (LinearLayout) window.findViewById(R.id.ll_add_resume);
+                llProgressBar = (LinearLayout) window.findViewById(R.id.ll_progressBar);
+                llSubmitResume = (LinearLayout) window.findViewById(R.id.ll_submit_resume);
+                etResumeName = (EditText) window.findViewById(R.id.default_resume);  
+                tvEditName = (TextView) window.findViewById(R.id.edit_name);  
+                btApply = (Button) window.findViewById(R.id.bt_apply); 
+                btAddResume = (Button) window.findViewById(R.id.add_resume); 
+                bar = (ProgressBar) window.findViewById(R.id.progressBar); 
+                llProgressBar.setVisibility(View.GONE);
+                etResumeName.setText(mResumeData.get(0).get("resume_name").toString());  
+                llAddResume.setVisibility(View.GONE);
+                    
+                btApply.setOnClickListener(new OnClickListener() {
+                    
+                    @Override
+                    public void onClick(View arg0) {
+                        DialogDemo.show(ResumeActivity.this,2);
+                        new SendResumeThread(handler).start();
+                    }
+                });
             }
         });
         btApply.setOnClickListener(new OnClickListener() {
@@ -650,6 +694,8 @@ public class ResumeActivity extends BaseActivity implements OnActionSheetSelecte
                     if(msg.obj.toString().equals("resume_get")){
                         if(mResumeData.size()>0)
                             show();
+                        else
+                            mEdit = "resume_add";
                     }else if(msg.obj.toString().equals("album_get")){
                         if(mAblumData.size()>0)
                             showPic();
