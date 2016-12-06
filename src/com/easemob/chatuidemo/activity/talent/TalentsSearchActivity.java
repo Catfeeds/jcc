@@ -135,6 +135,7 @@ public class TalentsSearchActivity extends BaseActivity {
                         TalentsImgViewActivity.class);
                 Bundle extras = new Bundle();
                 extras.putString("id", mListData.get(arg2).get("id").toString());
+                extras.putString("type", "talent");
                 intent.putExtras(extras);
                 startActivity(intent); 
             }

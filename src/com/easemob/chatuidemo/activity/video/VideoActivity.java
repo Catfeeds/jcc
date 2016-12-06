@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -151,6 +152,15 @@ public class VideoActivity extends BaseActivity {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);  
         } 
     }  
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+         if (keyCode == KeyEvent.KEYCODE_BACK && wvDetail.canGoBack()) {
+              wvDetail.goBack();
+              return true;
+         }
+         return super.onKeyDown(keyCode, event);
+    }
     
     @Override  
     public void onPause() {// 继承自Activity  

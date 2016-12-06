@@ -5,6 +5,7 @@ import java.util.List;
 import org.w3c.dom.Text;
 import com.easemob.chatuidemo.domain.Info;
 import com.easemob.chatuidemo.utils.ConnServer;
+import com.squareup.picasso.Picasso;
 import com.wenpy.jcc.R;
 
 import android.app.ActionBar.LayoutParams;
@@ -83,9 +84,10 @@ public class GridImageAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }  
-  
+
+        Picasso.with(context).load(info.getImage()).error(R.drawable.empty_photo).into(holder.image);
         // 异步的加载图片 (线程池 + Handler ) ---> AsyncTask  
-        asyncloadImage(holder.image, info.getImage()); 
+        //asyncloadImage(holder.image, info.getImage()); 
   
         return convertView;  
     }  
@@ -123,7 +125,8 @@ public class GridImageAdapter extends BaseAdapter {
             super.onPostExecute(result);   
             // 完成图片的绑定 
             if (iv_header != null && result != null) {  
-                iv_header.setImageURI(result);  
+                Picasso.with(context).load(result).error(R.drawable.empty_photo).into(iv_header);
+//                iv_header.setImageURI(result);  
             }else{
                 iv_header.setImageResource(R.drawable.empty_photo);
             }

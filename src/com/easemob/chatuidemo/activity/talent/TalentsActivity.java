@@ -357,24 +357,31 @@ public class TalentsActivity extends BaseActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ImageView ivPhoto = null;
-            TextView tvTitle = null;
-            TextView tvDate = null;
+        public View getView(int position, View convertView, ViewGroup parent) {           
             final int index = position;
-            
+            ViewHolder holder;
             if(convertView == null){
+                holder = new ViewHolder(); 
                 convertView = inflater.inflate(resource, null);//生成条目界面对象
+                holder.ivPhoto = (ImageView) convertView.findViewById(R.id.photo);
+                holder.tvTitle = (TextView) convertView.findViewById(R.id.title);
+                holder.tvDate = (TextView) convertView.findViewById(R.id.date);
+                convertView.setTag(holder);
+            }else{
+                holder = (ViewHolder)convertView.getTag();
             }
-            ivPhoto = (ImageView) convertView.findViewById(R.id.photo);
-            tvTitle = (TextView) convertView.findViewById(R.id.title);
-            tvDate = (TextView) convertView.findViewById(R.id.date);
 
-            tvTitle.setText(data.get(position).get("title").toString());
-            tvDate.setText(data.get(position).get("date").toString());
+            holder.tvTitle.setText(data.get(position).get("title").toString());
+            holder.tvDate.setText(data.get(position).get("date").toString());
 
             return convertView;
-        } 
+        }         
+
+        private class ViewHolder {
+            ImageView ivPhoto;
+            TextView tvTitle;
+            TextView tvDate;
+        }
     }
 
     private final Handler handler = new Handler(Looper.getMainLooper()) {
